@@ -1,1 +1,18 @@
+name: Trigger Webhook
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened]
+  merge:
+
+jobs:
+  trigger_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Webhook
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: http://127.0.0.1:5000/webhook
+          webhook_secret: YOUR_SECRET
 
